@@ -1,20 +1,21 @@
+require('dotenv').config()
 const firebase = require("../index");
 
 class Connection {
-    constructor(url, jsonPath, firebaseName) {
+    constructor(url, json, firebaseName) {
         this.url = url;
-        this.jsonPath = jsonPath;
+        this.json = json;
         this.firebaseName = firebaseName;
         if (this.url === void 0) {
             throw new Error(`Firebase Url Not defined for ${firebaseName} firebase.`.bgRed)
         }
 
-        if (this.jsonPath === void 0) {
+        if (this.json === void 0) {
             throw new Error('Firebase JSON Undefined'.bgRed)
         }
         let firebaseJson;
         try {
-            firebaseJson = require(this.jsonPath);
+            firebaseJson = this.json;
         } catch (e) {
             console.error('-------------------------------------------Failed Loading Firebase Admin JSON-------------------------------------------\n'.bgRed);
             throw new Error('Firebase Admin JSON not provided'.bgRed)

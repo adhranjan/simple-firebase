@@ -10,7 +10,8 @@ module.exports = function (fireBaseJSON, databaseUrl, appName) {
         );
     } catch (e) {
         console.error(`-------------------------------------------Failed Initializing ${appName}-------------------------------------------\n`.bgRed);
-        throw new Error(e.bgRed)
+        console.log(e);
+        process.exit();
     }
     return admin.app(appName);
 };

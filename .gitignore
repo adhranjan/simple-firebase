@@ -1,4 +1,5 @@
 .idea/
-root/module/instances/firebase-admin.json
+root/module/instances/default/firebase-admin.json
 node_modules
 package-lock.json
+.env

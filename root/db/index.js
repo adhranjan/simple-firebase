@@ -9,7 +9,7 @@ class Model {
 
     add(uniqueId, data) {
         /*
-        * Replaces the previous data and appends data into collection, if it exist
+        * Replaces the previous data if it exist, and appends data into collection
         */
         return this.database
             .ref(this.collection)
@@ -19,7 +19,7 @@ class Model {
 
     updateOrCreate(uniqueId, data) {
         /*
-        * Update provided attributes in collection if exist, else creates the field
+        * Updates provided attributes in collection if exist, else creates the collection
         */
         return this.database
             .ref(this.collection)

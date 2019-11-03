@@ -1,4 +1,4 @@
-const connection = require("./connect");
+const connection = require("../connect");
 /*
 * For Every New Database you connect,
 * Create a connection class
@@ -6,8 +6,8 @@ const connection = require("./connect");
 
 class DefaultConnection{
     constructor(){
-        this.url = "https://simple-fb.firebaseio.com/";
-        this.json = "./firebase-admin.json";
+        this.url = process.env.DEFAULT_DATABASE_URL;
+        this.json = require("./firebase-admin.json");
         this.name = "default";
     }
 

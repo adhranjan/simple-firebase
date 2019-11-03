@@ -3,7 +3,7 @@
 * export the connection
 * */
 
-let defaultDatabase = require('./connect-default')
+let defaultDatabase = require('./default/connect-default')
 
 
 module.exports = {
