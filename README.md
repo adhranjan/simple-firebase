@@ -40,13 +40,12 @@ You are now connected to firebase
 
 
 ###Using Models
-almost
 
 ```
 Create your class in collection/models/ directory
 
 const Database = require('../../root/db');
-const connection = require('../../root/module/instances').defaultDatabase;
+const connection = require('../../root/mo~~~~dule/instances').defaultDatabase;
 // Choose which databse you wish to connect with
 
 class AnotherTest extends Database{

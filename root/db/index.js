@@ -1,10 +1,13 @@
 const q = require("q");
 const value = require("../../change-listener/event-types").value;
+const Changes = require('../../change-listener/changes')
 
-class Model {
+class Model extends Changes{
     constructor(database, collection) {
+        super();
         this.collection = collection;
         this.database = database;
+        this.setReference(this.database.ref(this.collection))
     }
 
     add(uniqueId, data) {
@@ -67,6 +70,8 @@ class Model {
         });
         return deferred.promise;
     }
+
+
 
     // orderedGet(uniqueId, startAt, endAt) {
     //     let deferred = q.defer();

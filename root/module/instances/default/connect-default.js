@@ -9,11 +9,7 @@ class DefaultConnection{
         this.url = process.env.DEFAULT_DATABASE_URL;
         this.json = require("./firebase-admin.json");
         this.name = "default";
-    }
-
-    connect(){
         return new connection(this.url, this.json, this.name);
     }
-
 }
 module.exports = DefaultConnection;

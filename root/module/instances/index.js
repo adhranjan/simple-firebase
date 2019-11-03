@@ -7,5 +7,5 @@ let defaultDatabase = require('./default/connect-default')
 
 
 module.exports = {
-    defaultDatabase: new defaultDatabase().connect(),
+    defaultDatabase: new defaultDatabase(),
 };
