@@ -6,7 +6,7 @@ class Connection {
         this.jsonPath = jsonPath;
         this.firebaseName = firebaseName;
         if (this.url === void 0) {
-            throw new Error('Firebase Url Undefined'.bgRed)
+            throw new Error(`Firebase Url Not defined for ${firebaseName} firebase.`.bgRed)
         }
 
         if (this.jsonPath === void 0) {

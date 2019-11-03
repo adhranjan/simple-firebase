@@ -6,7 +6,7 @@ const connection = require("./connect");
 
 class DefaultConnection{
     constructor(){
-        this.url = process.env.DEFAULT_FIREBASE_DB_URL;
+        this.url = "https://simple-fb.firebaseio.com/";
         this.json = "./firebase-admin.json";
         this.name = "default";
     }
