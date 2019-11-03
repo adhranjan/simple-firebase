@@ -1,10 +1,15 @@
-/*
-* Provide all the models
-* */
+const fs = require('fs');
+const camelCase = require('camelcase');
+let models = {};
 
-const test =  require('./models/test-model');
-const anotherTest =  require('./models/another-test');
-module.exports = {
-    test: new test(),
-    anotherTest: new anotherTest()
+let include = (file)=>{
+    let collection = require(`${__dirname}/models/${file}`);
+    let [model] = file.split('.');
+    models[camelCase(model)] = new collection();
 };
+
+fs.readdirSync(__dirname+'/models').forEach(file => {
+    include(file);
+});
+
+module.exports = models

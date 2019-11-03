@@ -40,8 +40,43 @@ You are now connected to firebase
 
 
 ###Using Models
+almost
 
-// TODO add 
+```
+Create your class in collection/models/ directory
+
+const Database = require('../../root/db');
+const connection = require('../../root/module/instances').defaultDatabase;
+// Choose which databse you wish to connect with
+
+class AnotherTest extends Database{
+    constructor() {
+        super(connection, "nameYourCollectionHere");
+    }
+}
+module.exports = AnotherTest;
+```
+
+Inside the business logic
+```
+/*
+* Access collection object by using camelCase of the filename via require('./collection/index')
+* or you can directly create your own object of the model
+* * */
+const anotherTest  = require('./collection/index').anotherTest;
+
+anotherTest.firstOrCreate("uniqueId",{
+    name:"another test"
+}).then((d)=>{
+    console.log(d)
+}).catch((e)=>{
+    console.log(e)
+});
+
+
+```
+
+
 
 ##Available Operations
 `add()` 
