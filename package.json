@@ -1,0 +1,28 @@
+{
+  "name": "simple-firebase",
+  "version": "1.0.0",
+  "description": "Ease firebase implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adhranjan/easy-firebase.git"
+  },
+  "keywords": [
+    "node",
+    "firebase"
+  ],
+  "author": "Ranjan Adhikari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adhranjan/simple-firebase/issues"
+  },
+  "homepage": "https://github.com/adhranjan/simple-firebase#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "firebase-admin": "^8.6.1",
+    "q": "^1.5.1"
+  }
+}
