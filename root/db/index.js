@@ -38,7 +38,7 @@ class Model extends Changes{
         this.database
             .ref(this.collection)
             .child(uniqueId)
-            .on(value, snapshot => {
+            .once(value, snapshot => {
                 if (snapshot.val() === null) {
                     deferred.reject(
                         `${uniqueId} in ${this.collection} collection not found.`
