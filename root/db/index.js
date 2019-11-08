@@ -7,7 +7,6 @@ class Model extends Changes{
         super();
         this.collection = collection;
         this.database = database;
-        this.setReference(this.database.ref(this.collection))
     }
 
     add(uniqueId, data) {

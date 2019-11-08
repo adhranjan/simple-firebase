@@ -1,31 +1,44 @@
 const eventType = require("./event-types");
+const Listener = require("./listener");
+
+/*
+*
+* @private
+* @param(string) collection
+* @param(string) eventType
+* @param(function) callback
+*
+* */
+const subscribe = (database, collection, eventType, callback) => {
+    new Listener(database, collection, eventType, callback).listen();
+};
 
 
-class Changes{
-	setReference(reference) {
-		this.reference = reference;
-	}
+class Changes {
+    constructor(database, collection) {
+        this.database = database;
+        this.collection = collection;
+    }
 
-	childAdded(callback){
-		this.subscribe(eventType.child_added, callback);
-	}
+    childAdded(subCollection, callback) {
+        subscribe(this.database, this.getCollectionString(subCollection), eventType.child_added, callback);
+    }
 
-	childRemoved(callback){
-		this.subscribe(eventType.child_removed, callback);
-	}
+    childRemoved(subCollection, callback) {
+        subscribe(this.database, this.getCollectionString(subCollection), eventType.child_removed, callback);
+    }
 
-	childChanged(callback){
-		this.subscribe(eventType.child_changed, callback);
-	}
+    childChanged(subCollection, callback) {
+        subscribe(this.database, this.getCollectionString(subCollection), eventType.child_changed, callback);
+    }
 
-	childMoved(callback){
-		this.subscribe(eventType.child_moved, callback);
-	}
+    childMoved(subCollection, callback) {
+        subscribe(this.database, this.getCollectionString(subCollection), eventType.child_moved, callback);
+    }
 
-
-	subscribe(eventType, callback){
-		this.reference.on(eventType,callback)
-	}
+    getCollectionString(subCollection) {
+        return subCollection === null ? this.collection : `${this.collection}/${subCollection}`
+    }
 
 
 }

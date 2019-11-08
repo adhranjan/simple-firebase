@@ -1,14 +1,18 @@
 'use strict'
 const Database = require('../../root/db');
+
+const whenChildAdded = (snapshot) => {
+    console.log(snapshot.val())
+};
+
 const connection = require('../../root/module/instances').defaultDatabase;
+
 class Test extends Database {
     constructor() {
         super(connection, "test");
-        this.childAdded(this.whenChildAdded);
+        this.childRemoved(1, whenChildAdded);
     }
 
-    whenChildAdded(snapshot){
-        console.log(snapshot.val())
-    }
 }
+
 module.exports = Test;
