@@ -9,6 +9,10 @@ class Listener {
     listen() {
         this.database.ref(this.collection).on(this.eventType, this.callBack)
     }
+
+    ignore() {
+        this.database.ref(this.collection).off(this.eventType, this.callBack)
+    }
 }
 
 module.exports = Listener;

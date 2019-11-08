@@ -10,7 +10,7 @@ const Listener = require("./listener");
 *
 * */
 const subscribe = (database, collection, eventType, callback) => {
-    new Listener(database, collection, eventType, callback).listen();
+    return new Listener(database, collection, eventType, callback);
 };
 
 
@@ -21,19 +21,19 @@ class Changes {
     }
 
     childAdded(subCollection, callback) {
-        subscribe(this.database, this.getCollectionString(subCollection), eventType.child_added, callback);
+        return subscribe(this.database, this.getCollectionString(subCollection), eventType.child_added, callback);
     }
 
     childRemoved(subCollection, callback) {
-        subscribe(this.database, this.getCollectionString(subCollection), eventType.child_removed, callback);
+        return subscribe(this.database, this.getCollectionString(subCollection), eventType.child_removed, callback);
     }
 
     childChanged(subCollection, callback) {
-        subscribe(this.database, this.getCollectionString(subCollection), eventType.child_changed, callback);
+        return subscribe(this.database, this.getCollectionString(subCollection), eventType.child_changed, callback);
     }
 
     childMoved(subCollection, callback) {
-        subscribe(this.database, this.getCollectionString(subCollection), eventType.child_moved, callback);
+        return subscribe(this.database, this.getCollectionString(subCollection), eventType.child_moved, callback);
     }
 
     getCollectionString(subCollection) {

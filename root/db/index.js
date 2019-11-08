@@ -2,7 +2,7 @@ const q = require("q");
 const value = require("../../change-listener/event-types").value;
 const Changes = require('../../change-listener/changes')
 
-class Model extends Changes{
+class Model extends Changes {
     constructor(database, collection) {
         super();
         this.collection = collection;
@@ -17,6 +17,10 @@ class Model extends Changes{
             .ref(this.collection)
             .child(uniqueId)
             .set(data);
+    };
+
+    remove(uniqueId) {
+        return this.add(uniqueId, null);
     };
 
     updateOrCreate(uniqueId, data) {
@@ -69,7 +73,6 @@ class Model extends Changes{
         });
         return deferred.promise;
     }
-
 
 
     // orderedGet(uniqueId, startAt, endAt) {
